@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Map with Image</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { height: 5vh; }
+		
+		.leaflet-image-layer {
+    image-rendering: pixelated;
+}
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    var map = L.map('map').setView([0, 0], 2); // Set the initial center and zoom level
+
+    var imageUrl = 'https://i.imgur.com/d6CnCkA.png'; // Replace with the path to your image
+    var imageBounds = [[-10, -10], [10, 10]]; // Replace with the bounds of your image
+
+    L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
+    var polygon1Coordinates = [
+		[49.9442, -93.8013],
+		[49.9442, -85.7813],
+		[47.4207, -85.7922],
+		[47.4429, -74.3994],
+		[37.3265, -74.4214],
+		[37.3090, -68.0548],
+		[42.4883, -68.0603],
+		[42.4761, -63.2263],
+		[57.0407, -62.7539],
+		[57.0646, -68.0493],
+		[65.5130, -67.8735],
+		[65.5084, -85.8142],
+		[57.8623, -85.8252],
+		[57.8389, -86.2317],
+		[56.2067, -86.2537],
+		[56.0229, -94.3066]
+    ];
+	var polygon = L.polygon(polygon1Coordinates, { color: 'blue' })
+	.addTo(map)
+	.bindPopup('<h1>New Manchester</h1><p>Formerly inducted by the United Kingdom of Britannia and Finland on the 28th December 2023. New Manchester is the capital of the Brinnish government, and is where the governmental offices are located.</p><p>Landmarks include the Chernoff Pub (formerly known as Balogne Bar) and 2 Georging Street where the Prime Minister and his cabinet is based.</p><p>Despite suffering numerous heavy attacks from Combine forces since its induction by the Brinnish government and a brief annexation during the Third Battle of New Manchester, the city remains firmly in the hands of the Brinnish government.</p>')
+	
+    var polygon2Coordinates = [
+		[39.7072, -60.2051],
+		[39.7072, -53.3496],
+		[22.8876, -53.6023],
+		[22.8471, -56.2390],
+		[9.9851, -56.2335],
+		[9.9797, -60.1941],
+		[17.0148, -60.1831],
+		[17.2484, -69.7934],
+		[28.0817, -69.8071],
+		[28.1107, -63.3032],
+		[31.0906, -63.2813],
+		[31.1164, -60.2023]
+    ];
+	var polygon = L.polygon(polygon2Coordinates, { color: 'blue' })
+	.addTo(map)
+	.bindPopup('<h1>New Boston</h1><p>Formerly inducted by the United Kingdom of Britannia and Finland on the 28th December 2023.</p>')
+	
+    var polygon3Coordinates = [
+		[-47.7541, -49.2297],
+		[-47.5895, -114.2194],
+		[-48.2576, -115.0955],
+		[-48.2521, -116.6418],
+		[-53.4488, -116.6528],
+		[-53.4504, -121.2080],
+		[-52.0896, -121.2067],
+		[-52.0845, -137.3801],
+		[-41.3397, -137.1588],
+		[-41.3768, -158.3789],
+		[-57.0228, -158.1812],
+		[-57.0407, -137.6367],
+		[-60.6678, -137.6477],
+		[-60.6543, -121.6626],
+		[-64.0145, -121.4429],
+		[-64.0049, -114.8566],
+		[-60.5276, -114.8511],
+		[-60.5262, -111.7969],
+		[-57.1899, -111.6980],
+		[-57.0228, -49.2462]
+    ];
+	var polygon = L.polygon(polygon3Coordinates, { color: 'blue' })
+	.addTo(map)
+	.bindPopup('<h1>Kouvola Industrial Strip</h1><p>Formerly inducted by the United Kingdom of Britannia and Finland on the 30th December 2023.</p>')
+
+    var polygon4Coordinates = [
+		[9.9526, -37.4249],
+		[9.9634, 58.3896],
+		[-1.0107, 58.3951],
+		[-0.9997, -37.6584]
+    ];
+	var polygon = L.polygon(polygon4Coordinates, { color: 'blue' })
+	.addTo(map)
+	.bindPopup('<h1>Little Estonia</h1><p>Formerly inducted by the United Kingdom of Britannia and Finland on the 29th December 2023.</p>')
+
+
+    map.on('click', function(event) {
+        var clickedLatLng = event.latlng;
+        L.popup()
+            .setLatLng(clickedLatLng)
+            .setContent(clickedLatLng.lat.toFixed(4) + ', ' + clickedLatLng.lng.toFixed(4))
+            .openOn(map);
+    });
+	
+</script>
+
+</body>
+</html>
