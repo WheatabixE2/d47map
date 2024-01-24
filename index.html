@@ -95,17 +95,26 @@
 	var polygon = L.polygon(polygon3Coordinates, { color: 'blue' })
 	.addTo(map)
 	.bindPopup('<h1>Kouvola Industrial Strip</h1><p>Formerly inducted by the United Kingdom of Britannia and Finland on the 30th December 2023.</p>')
-
+	
     var polygon4Coordinates = [
-		[9.9526, -37.4249],
+		[9.9513, -37.6543],
 		[9.9634, 58.3896],
 		[-1.0107, 58.3951],
-		[-0.9997, -37.6584]
+		[-1.0052, -32.3932],
+		[-6.4845, -32.4042],
+		[-6.4927, -4.8450],
+		[-12.1521, -4.8477],
+		[-12.1521, -5.2844],
+		[-15.7949, -5.2927],
+		[-15.7949, -17.3103],
+		[-12.1548, -17.3186],
+		[-12.1548, -37.4345],
+		[-1.0004, -37.4373],
+		[-0.9997, -37.6584],
     ];
 	var polygon = L.polygon(polygon4Coordinates, { color: 'blue' })
 	.addTo(map)
 	.bindPopup('<h1>Little Estonia</h1><p>Formerly inducted by the United Kingdom of Britannia and Finland on the 29th December 2023.</p>')
-
 
     map.on('click', function(event) {
         var clickedLatLng = event.latlng;
